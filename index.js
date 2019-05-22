@@ -44,7 +44,10 @@ app.get('/api/getlist', (req, res) => {
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 
 app.get('/api/getlist/:id', (req, res) => {
-    console.log(req.params)
+    //let id = req.params.id
+    //if(Number(id) == NaN)
+    let sql = 'select * from products where id=${req.params.id}'
+    console.log(req.params, sql)
     //client.query('select * from farms', function(err, result) {
     //res.send(JSON.stringify(result.rows))
     //client.end()

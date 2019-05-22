@@ -1,9 +1,9 @@
 let pg = require('pg')
 let client = new pg.Client(
     {
-        user: 'postgres',
-        password: 'postgres',
-        database: 'csv',
+        user: 'web002',
+        password: 'webd003',
+        database: 'nsx',
         host: 'localhost',
         port: 5432
     }
@@ -19,8 +19,20 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+app.set('view engine', 'ejs')
+app.use(express.static(__dirname + '/assets'))
+
 app.get('/', (req, res) => {
-    client.query('select * from dm_nv', function(err, result) {
+    res.render('index', {
+        user: {
+    
+        },
+        users: ['apple','samsung','sony']
+    })
+})
+
+app.get('/api/getlist', (req, res) => {
+    client.query('select * from farms', function(err, result) {
     res.send(JSON.stringify(result.rows))
     client.end()
 })

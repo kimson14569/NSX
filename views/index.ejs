@@ -1,0 +1,14 @@
+<table>
+    <tbody>
+      <% users.forEach(function(user){ %>
+        <tr>
+          <th><%=user.id%></th>
+          <td><%=user.name%></td>
+          <td><%=user.owner%></td>
+          <td><%=user.address%></td>
+          <td><%=user.phone%></td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  

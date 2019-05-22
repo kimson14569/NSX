@@ -1,12 +1,12 @@
-<table>
+<table border="1" width="100%">
     <tbody>
-      <% users.forEach(function(user){ %>
+      <% data.forEach(function(item){ %>
         <tr>
-          <th><%=user.id%></th>
-          <td><%=user.name%></td>
-          <td><%=user.owner%></td>
-          <td><%=user.address%></td>
-          <td><%=user.phone%></td>
+          <th><%=item.id%></th>
+          <td><%=item.name%></td>
+          <td><%=item.owner%></td>
+          <td><%=item.address%></td>
+          <td><%=item.phone%></td>
         </tr>
         <% }); %>
       </tbody>

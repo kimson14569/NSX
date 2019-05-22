@@ -1,7 +1,7 @@
 let pg = require('pg')
 let client = new pg.Client(
     {
-        user: 'web002',
+        user: 'webd002',
         password: 'webd003',
         database: 'nsx',
         host: 'localhost',
@@ -23,11 +23,10 @@ app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/assets'))
 
 app.get('/', (req, res) => {
-    res.render('index', {
-        user: {
-    
-        },
-        users: ['apple','samsung','sony']
+    client.query('select * from farms', function(err, result){
+        res.render('index', {
+            data: result.rows
+        })
     })
 })
 

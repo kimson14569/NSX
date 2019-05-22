@@ -1,8 +1,17 @@
 <table border="1" width="100%">
     <tbody>
+          <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>owner</th>
+            <th>address</th>
+            <th>phone</th>
+          </tr>
+        </tbody>
+    <tbody>
       <% data.forEach(function(item){ %>
         <tr>
-          <th><%=item.id%></th>
+          <td><%=item.id%></td>
           <td><%=item.name%></td>
           <td><%=item.owner%></td>
           <td><%=item.address%></td>

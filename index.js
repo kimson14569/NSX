@@ -1,10 +1,11 @@
 let pg = require('pg')
+let env = require('dotenv').config()
 let client = new pg.Client(
     {
-        user: 'webd002',
-        password: 'webd003',
-        database: 'nsx',
-        host: 'localhost',
+        user: process.env.DB_USER,
+        password: process.env.DB_PASS,
+        database: process.env.DB_NAME,
+        host: process.env.DB_POST,
         port: 5432
     }
 )
@@ -18,6 +19,9 @@ client.connect()
 const express = require('express')
 const app = express()
 const port = 3000
+
+
+console.log(env)
 
 app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/assets'))
@@ -38,3 +42,11 @@ app.get('/api/getlist', (req, res) => {
 })
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+
+app.get('/api/getlist/:id', (req, res) => {
+    console.log(req.params)
+    //client.query('select * from farms', function(err, result) {
+    //res.send(JSON.stringify(result.rows))
+    //client.end()
+//})
+})
